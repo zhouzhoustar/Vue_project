@@ -13,9 +13,10 @@
 
 export default {
     created(){
-      this.$http.get("/api").then(data=>{
+      this.$http.get("/adf").then(data=>{
         alert(data.data.a)
       })
+      
     }
 }
 </script>
