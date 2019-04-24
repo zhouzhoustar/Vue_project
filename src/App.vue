@@ -1,9 +1,7 @@
 <template>
 
-  <div>
-      <h1>======我是公共部分========</h1>
-            <router-view></router-view>
-      <h1>======我是公共部分========</h1>
+  <div> 
+          <router-view></router-view> 
   </div>
      
 </template>
@@ -12,12 +10,12 @@
  
 
 export default {
-    created(){
-      this.$http.get("/adf").then(data=>{
-        alert(data.data.a)
-      })
+    // created(){
+    //   this.$http.get("/mingan").then(data=>{
+    //     alert(data.data.a)
+    //   })
       
-    }
+    // }
 }
 </script>
 
