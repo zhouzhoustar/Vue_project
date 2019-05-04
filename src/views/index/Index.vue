@@ -1,10 +1,7 @@
 <template>
     <div>
         <h1>我是首页</h1>
-        <p>{{$store.state.me.nickname}}</p>
-        <p>{{$store.state.me.username}}</p>
-
-        <h1>234234</h1>
+        <p>{{$store.state.me.nickname}},记得每天喝八杯水哦</p> 
     </div>
 </template>
 
