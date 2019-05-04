@@ -1,7 +1,11 @@
 <template>
     <div>
-        <h1>我是首页</h1>
-        <p>{{$store.state.me.nickname}},记得每天喝八杯水哦</p> 
+        <Content :style="{'padding':'20px'}">
+            <Card>
+                <h1>我是首页</h1>  
+            </Card>
+        </Content>
+      
     </div>
 </template>
 
