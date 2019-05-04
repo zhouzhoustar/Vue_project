@@ -46,7 +46,7 @@
                     'username':this.form.username,
                     'password':this.form.password
                 }).then(data=>data.data)
-               console.log(result)
+            //    console.log(result)
             if(result == 1){
                 //登陆成功
                 router.push({'name':'index'})
