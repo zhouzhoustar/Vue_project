@@ -1,47 +1,53 @@
 <template>
    
-     <div>
-         <h1>
-             哈哈哈哈哈，我来了
-         </h1>
-          <!-- <Button type="primary" @click="modal1 = true">Display dialog box</Button> 
-     <Modal
-        :value="this.$changeAvatarModel.isShow"
-        title="注意事项"
-        @on-ok="ok"
-        @on-cancel="cancel">
-         
-                <p>
-                    1) 上传图片要小于200kb
-                </p>
-                <p>
-                    2) 支持jpg、png图片上传，不支持psd
-                </p>
-                <p>
-                    3) 上传图片我们提供裁切功能
-                </p>
-    </Modal> -->
+     <div> 
+        <Modal 
+            :value="true" 
+            title="更改您的头像" 
+            @on-ok="ok"
+            @on-cancel="cancel"
+            
+        >
+
+            <Step1 v-if="step==1"/>
+            <Step2 v-if="step==2"/>
+            <Step3 v-if="step==3"/>
+        <div slot="footer">
+            <Button @click="cancel">取消</Button>
+        </div>
+                   
+        </Modal>
      </div>
     
 </template>
 
 <script>
+    import Step1 from "./Step1.vue"
+    import Step2 from "./Step2.vue"
+    import Step3 from "./Step3.vue"
     export default {
-    //    data () {
-    //         return {
-    //             // modal1: false
-    //         }
-    //     },
-    //     methods: {
-    //         ok () {
-    //             // this.$Message.info('Clicked ok');
-    //             this.$changeAvatarModel.hide()
-    //         },
-    //         cancel () {
-    //             this.$changeAvatarModel.hide()
-    //             // this.$Message.info('Clicked cancel');
-    //         }
-    //     }
+       data () {
+            return {
+                step:1
+            }
+        },
+        methods: {
+            ok () {
+                
+                this.$changeAvatarModel.hide()
+            },
+            cancel () {
+                this.$changeAvatarModel.hide()
+                
+            }
+        },
+        components:{
+            Step1,
+            Step2,
+            Step3
+
+        }
+        
     }
 </script>
 
