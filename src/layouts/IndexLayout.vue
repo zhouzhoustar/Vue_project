@@ -7,6 +7,32 @@
                     <div class="layout-logo">
                         <img src="../../public/images/logo.png"/>
                     </div>
+                    <div class="user_zone">
+                        <Poptip trigger="hover"  content="xixi" >
+                            <span>
+                                {{nickname}}
+                            </span>
+                            <Avatar v-if="avatar!=''" :src="'http://127.0.0.1:3000/images/'+avatar" />
+                            <ul slot='content'>
+                                <li>
+                                    <a href="">更改头像</a>
+                                </li>
+                                <li>
+                                    <a href="">我的信息</a>
+                                </li>
+                                <li>
+                                    <a href="">充值</a>
+                                </li>
+                                <li>
+                                    <a href="">站内信</a>
+                                </li>
+                                <li>
+                                    <a href="">退出登录</a>
+                                </li>
+                                 
+                            </ul>
+                        </Poptip>
+                    </div>
                     <div class="layout-nav">
                         <MenuItem name="1">
                             <Icon type="ios-navigate"></Icon>
@@ -19,11 +45,7 @@
                         <MenuItem name="3">
                             <Icon type="ios-analytics"></Icon>
                             Item 3
-                        </MenuItem>
-                        <MenuItem name="4">
-                            <Icon type="ios-paper"></Icon>
-                            Item 4
-                        </MenuItem>
+                        </MenuItem>  
                     </div>
                 </Menu>
             </Header>
@@ -35,7 +57,15 @@
 </template>
 <script>
 export default {
-    
+    //过继一下
+    computed:{
+        nickname(){
+            return this.$store.state.me.nickname
+        },
+        avatar(){
+            return this.$store.state.me.avatar
+        }
+    }
 }
 </script>
 <style lang="less"  scoped>
@@ -67,8 +97,18 @@ export default {
 }
 .layout-nav{
     width: 420px;
-    margin: 0 auto;
-    margin-right: 20px;
+    float:right;
+}
+.user_zone{
+    float: right;
+    cursor:pointer;
+    li{
+        padding:10px 0;
+       border-bottom:1px solid #eee;
+       a{
+           color:#333;
+       }
+    }
 }
 .layout-footer-center{
     text-align: center;
