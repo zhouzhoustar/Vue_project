@@ -2,20 +2,25 @@
 
   <div> 
           <router-view></router-view> 
+          <changeAvatarModals v-if="$changeAvatarModel.isShow"/> 
+         
   </div>
      
 </template>
 
 <script>
+import changeAvatarModals from "./components/change-avatar-modals/change-avatar-modals.vue"
  
 
 export default {
-    // created(){
-    //   this.$http.get("/mingan").then(data=>{
-    //     alert(data.data.a)
-    //   })
-      
-    // }
+  data(){
+    return {
+
+    }
+  },
+   components:{
+     changeAvatarModals
+   }
 }
 </script>
 

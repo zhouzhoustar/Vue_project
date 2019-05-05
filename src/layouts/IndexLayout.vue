@@ -15,7 +15,7 @@
                             <Avatar v-if="avatar!=''" :src="'http://127.0.0.1:3000/images/'+avatar" />
                             <ul slot='content'>
                                 <li>
-                                    <a href="">更改头像</a>
+                                    <a href="javascript:;" @click="showModel">更改头像</a>
                                 </li>
                                 <li>
                                     <a href="">我的信息</a>
@@ -57,6 +57,11 @@
 </template>
 <script>
 export default {
+     methods:{
+                showModel(){
+                    this.$changeAvatarModel.show(); 
+                }
+            },
     //过继一下
     computed:{
         nickname(){

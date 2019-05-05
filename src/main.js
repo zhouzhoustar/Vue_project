@@ -5,7 +5,9 @@ import iview from "iview";
 import http from "./utils/http.js"
 import router from "./router.js" 
 import store from "./store/index.js"
+import changeAvatarModel from "./bus/changeAvatarModalControl"
 
+Vue.use(changeAvatarModel)
 Vue.use(iview)
 //将http写在vue的原型上
 Vue.prototype.$http = http; 
