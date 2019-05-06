@@ -9,8 +9,8 @@
             
         >
 
-            <Step1 v-if="step==1"/>
-            <Step2 v-if="step==2"/>
+            <Step1 v-if="step==1" :changeFile="changeFile" :changeStep="changeStep"/>
+            <Step2 v-if="step==2" :file='file' :changeFile="changeFile" :changeStep="changeStep"/>
             <Step3 v-if="step==3"/>
         <div slot="footer">
             <Button @click="cancel">取消</Button>
@@ -28,7 +28,8 @@
     export default {
        data () {
             return {
-                step:1
+                step:1,
+                file:null
             }
         },
         methods: {
@@ -39,6 +40,12 @@
             cancel () {
                 this.$changeAvatarModel.hide()
                 
+            },
+            changeFile(file){
+                this.file = file
+            },
+            changeStep(step){
+                this.step = step
             }
         },
         components:{

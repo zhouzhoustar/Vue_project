@@ -26,17 +26,23 @@
 
 <script>
     export default {
+        props:['changeFile','changeStep'],
         methods:{
-            changeHandler(){
-                alert("点我干嘛")
-            },
             chooseImageBtnHandler(){
-                 // 模拟鼠标事件对象
+                // 模拟鼠标事件对象
                 const evt = document.createEvent("MouseEvents");
                 // 初始化
                 evt.initMouseEvent("click",false,false);
                 // 派遣事件
                 this.$refs.file.dispatchEvent(evt);
+            },
+            changeHandler(e){
+                //这里产出一个file文件对象，这个组件不负责上传，而是交给step2上传
+                // console.log(e.target.files[0])
+                //调用父亲的函数
+                this.changeFile(e.target.files[0])
+                //改为第二个组件登场
+                this.changeStep(2)
             }
         }
     }
